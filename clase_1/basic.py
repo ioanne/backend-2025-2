@@ -73,4 +73,24 @@ float ->     entero int(2.0)
 
 int -> str   str(100)
 """
+def es_mayor_18(edad):
+    if edad > 18:
+        print("Mayor de 18")
+    else:
+        print("Menor de 18")
 
+validaciones = {
+    "mayor_18": es_mayor_18
+}
+
+variable = "mayor_18"
+edad = 10
+
+estructura = [("mayor_18", 20), ("mayor_18", 12), ("mayor_18", 10)]
+
+for dato in estructura:
+    validacion, edad = dato
+    try:
+        validaciones[validacion](edad)
+    except KeyError:
+        print("No existe validacion")
