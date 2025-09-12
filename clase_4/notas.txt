@@ -31,3 +31,8 @@ Paso 9
     Probamos django-extensions ingresando el comando
     python3 manage.py shell_plus
     Esto nos da una consola pre armada.
+
+
+Comandos de GIT
+
+git status -> estado de lo que estamos haciendo
