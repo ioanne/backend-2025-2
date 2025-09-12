@@ -1,0 +1,33 @@
+Paso 1
+    Creamos el entorno virtual
+
+Paso 2
+    Activamos el entorno e instalamos django.
+
+Paso 3
+    Creamos el proyecto
+
+Paso 4
+    Aplicamos las migraciones de django
+    Nos paramos donde esta el manage.py
+    (python3 manage.py migrate)
+
+Paso 5
+    Creamos las apps como las entidades que vamos a tener
+
+Paso 6
+    Primero anteponemos "apps" dentro del archivo apps de cada app.
+    Configuramos las apps.
+
+Paso 7
+    Vamos a crear el modelo de la carrera y las materias.
+    El max_length del CharField es obligatorio.
+
+Paso 8
+    Instalamos una herramienta de terceros llamada django-extensions
+    Luego, la configuramos en los settings
+
+Paso 9
+    Probamos django-extensions ingresando el comando
+    python3 manage.py shell_plus
+    Esto nos da una consola pre armada.
