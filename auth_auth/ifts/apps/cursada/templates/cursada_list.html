@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lista de Cursadas</title>
+    </head>
+    <body>
+        <h1>Lista de Cursadas</h1>
+        <ul>
+            {% for cursada in cursadas %}
+            <li>
+                {{ cursada.nombre }} - {{ cursada.profesor.nombre }} {{ cursada.profesor.apellido }}
+                <ul>
+                    <li><a href="{% url 'cursada_detail' cursada.id %}">Ver detalles</a></li>
+                </ul>
+            </li>
+
+            {% empty %}
+            <li>No hay cursadas disponibles.</li>
+            {% endfor %}
+        </ul>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="dropdown-item">Cerrar sesión</button>
+        </form>
+    </body>
+</html>

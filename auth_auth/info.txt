@@ -1,0 +1,9 @@
+Autorización
+Darle permisos para hacer cosas
+
+Hasta donde podemos ir
+
+Autenticación
+Garantizar que sos quien decir ser
+
+Login

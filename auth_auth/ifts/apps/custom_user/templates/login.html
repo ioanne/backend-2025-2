@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block title %}Iniciar Sesión{% endblock %} {% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5 col-lg-4">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post" novalidate>
+                        {% csrf_token %} {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label">Usuario</label>
+                            <input type="text" name="username" id="id_username" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="id_password" class="form-label">Contraseña</label>
+                            <input type="password" name="password" id="id_password" class="form-control" required />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-door-open"></i> Entrar</button>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <p>
+                                ¿No tienes cuenta?
+                                <a href="{% url 'register' %}" class="fw-bold text-decoration-none">Regístrate aquí</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="#" class="text-muted small">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

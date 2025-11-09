@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block title %}Registro{% endblock %} {% block content %}
+<div class="register-container">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-success text-white text-center py-3">
+            <h4 class="mb-0"><i class="fas fa-user-plus"></i> Crear Cuenta</h4>
+        </div>
+        <div class="card-body p-4">
+            <form method="post" novalidate>
+                {% csrf_token %} {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for field in form %} {% for error in field.errors %}
+                    <p><strong>{{ field.label }}:</strong> {{ error }}</p>
+                    {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+                    <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                        <label for="id_username" class="form-label">Usuario</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="id_email" class="form-label">Correo electrónico</label>
+                        {{ form.email }}
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-2">
+                    <div class="col-md-6">
+                        <label for="id_password1" class="form-label">Contraseña</label>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="id_password2" class="form-label">Confirmar Contraseña</label>
+                        {{ form.password2 }}
+                    </div>
+                </div>
+
+                <div class="d-grid mt-3">
+                    <button type="submit" class="btn btn-success btn-lg shadow-sm">
+                        <i class="fas fa-user-plus"></i> Completar Registro
+                    </button>
+                </div>
+                <div class="text-center mt-3">
+                    <p class="mb-0">
+                        ¿Ya tienes una cuenta?
+                        <a href="{% url 'login' %}" class="fw-bold text-decoration-none text-success"> Inicia sesión aquí </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

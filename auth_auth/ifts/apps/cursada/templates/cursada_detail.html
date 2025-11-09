@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cursada Detail</title>
+    </head>
+    <body>
+        <h1>Cursada Detail</h1>
+        <p>id: {{ cursada.id }}</p>
+        <p>nombre: {{ cursada.nombre }}</p>
+        <p>Profesor: {{ cursada.profesor.nombre }} {{ cursada.profesor.apellido }}</p>
+        {% for alumno in cursada.alumnos %}
+        <p>Alumno: {{ alumno.nombre }} {{ alumno.apellido }}</p>
+        {% endfor %}
+    </body>
+</html>

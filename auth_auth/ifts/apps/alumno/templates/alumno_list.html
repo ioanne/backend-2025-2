@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Listar alumnos</title>
+    </head>
+    <body>
+        <h1>Lista de Alumnos</h1>
+        <ul>
+            {% for alumno in alumnos %}
+            <li>{{ alumno.nombre }} {{ alumno.apellido }}</li>
+            {% empty %}
+            <li>No hay alumnos disponibles.</li>
+            {% endfor %}
+        </ul>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="dropdown-item">Cerrar sesión</button>
+        </form>
+    </body>
+</html>
